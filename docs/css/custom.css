@@ -1,8 +1,8 @@
 .md-typeset .admonition,
-.md-typeset details {
+.md-typeset details .note {
   border-width: 0 !important;
   border-left-width: 4px !important;
-  border-radius: 0 !important;
+  border-radius: 0px !important;
 }
 
 @font-face {
@@ -10,9 +10,8 @@
   src: url("./fonts/JetBrainsMonoNerdFontPropo-Regular.ttf");
 }
 
-@font-face {
-  font-family: "Barlow";
-  src: url("./fonts/barlow.ttf");
+.md-grid {
+  max-width: 85%;
 }
 
 code {
@@ -29,10 +28,6 @@ code {
 
 img {
   border-radius: 10px;
-}
-
-.highlight {
-  font-weight: bold !important;
 }
 
 termynal-comment {

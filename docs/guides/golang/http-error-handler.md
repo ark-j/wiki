@@ -1,14 +1,26 @@
 ---
-title: http error
+title: Handling HTTP Error in golang
 ---
 
-# Error handling in standard http handler by creating custom handler method
+Generally we need naked return to handle some kind of error in default http handler in golang. This is also true for framework like Gin and router like Chi too. So in order to handle errors in default http handler you will do as in following snippet.
+```golang
+func GetHandler(w http.ResponseWriter, r *http.Request) {
+    err := errors.New("some error")
+    if err != nil {
+        http.Error(err)
+        return 
+    }
+    w.Write([]byte("successful response"))
+}
+```
+As a human we may eventually forgot to return just after writing error. so we are exploring ways to handle error gracefully leaveraging the interface implementation of golang. If you look at the core of http handler it's just a interface. 😄 Good thing for us that we can easily implement it. Lets dig in.
+
+## Error handling in standard http handler by creating custom handler method
 Golang have excellent http library built in but it does not offer returning error for convient use case. 
 where other router like echo does offer error returing handler. now in this post we are going to look at creating http error returning handler.
 how create how to execute it.
 
 ## Creating custom http handler
-
 What is http handler in go or rather what is `http.HandlerFunc` is?
 In simple term http.HandlerFunc is whatever that implements `ServeHTTP(w http.ResponseWriter, r *http.Request)`.
 See subsequent snippet to follow how we are creating custom handler which returns error.

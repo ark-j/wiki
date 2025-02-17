@@ -3,7 +3,7 @@ title: Chi like routing methods in go 1.22 above
 tags: ["go", "http", "rest-api"]
 ---
 
-!!! warn
+!!! warning
     This is applicable in new golang router which include ability to find path parameters.
     You can you use go1.22+ or go1.21 using experimental features enabled
 
@@ -66,7 +66,7 @@ func (r *Router) handle(methodType, pattern string, handler http.Handler) {
 		panic("invalid grouping pattern")
 	}
 	pattern = fmt.Sprintf("%s %s%s", methodType, r.prefix, pattern)
-	r.mux.Handle(pattern, Chain(r.middlewares...).Handler(handler))
+	r.mux.Handle(pattern, chain(r.middlewares, handler))
 }
 
 func (r *Router) ServeHTTP(res http.ResponseWriter, req *http.Request) {
@@ -77,31 +77,6 @@ All generic http methods will call handle function which in term composed of log
 
 ## Crafting the middlware chaining
 ```go
-// Chain returns a Middlewares type from a slice of middleware handlers.
-func Chain(middlewares ...func(http.Handler) http.Handler) Middlewares {
-	return Middlewares(middlewares)
-}
-
-type Middlewares []func(http.Handler) http.Handler
-
-// Handler builds and returns a http.Handler from the chain of middlewares,
-// with `h http.Handler` as the final handler.
-func (mws Middlewares) Handler(h http.Handler) http.Handler {
-	return &ChainHandler{h, chain(mws, h), mws}
-}
-
-// ChainHandler is a http.Handler with support for handler composition and
-// execution.
-type ChainHandler struct {
-	Endpoint    http.Handler
-	chain       http.Handler
-	Middlewares Middlewares
-}
-
-func (c *ChainHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	c.chain.ServeHTTP(w, r)
-}
-
 // chain builds a http.Handler composed of an inline middleware stack and endpoint
 // handler in the order they are passed.
 func chain(middlewares []func(http.Handler) http.Handler, h http.Handler) http.Handler {
@@ -176,4 +151,4 @@ func WithPattern(s string) func(*Options) {
 	}
 }
 ```
-You can searhc on google about this pattern you can many article good at explaning it.
+You can follow along with any functional option pattern for how that works

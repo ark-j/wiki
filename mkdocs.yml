@@ -26,7 +26,7 @@ theme:
 
   # -- font settings --
   font:
-    text: Roboto
+    text: Adwaita Sans
     code: JetBrainsMono Nerd Font
 
   # -- language settings --

@@ -10,6 +10,11 @@
   src: url("./fonts/JetBrainsMonoNerdFontPropo-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Adwaita Sans";
+  src: url("./fonts/AdwaitaSans-Regular.ttf");
+}
+
 .md-grid {
   max-width: 85%;
 }

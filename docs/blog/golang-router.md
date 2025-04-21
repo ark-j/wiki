@@ -23,7 +23,7 @@ type Router struct {
 
 We will keep all fields to private for now more on this later. we have three fields `mux` which is default http.Mux, `middlewares` holds the list of middleare to apply to perticular mux,`prefix` this is empty for root mux because there's no group in it; Though it will require when we start to create groups of mux and attaching those to parent.
 
-## Desgining generic http methods
+## Designing generic http methods
 ```go
 func (r *Router) Get(pattern string, handler http.HandlerFunc) {
 	r.handle(http.MethodGet, pattern, handler)

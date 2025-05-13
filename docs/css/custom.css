@@ -1,18 +1,6 @@
-.md-typeset .admonition,
-.md-typeset details .note {
-  border-width: 0 !important;
-  border-left-width: 4px !important;
-  border-radius: 0px !important;
-}
-
 @font-face {
   font-family: "JetBrainsMono Nerd Font";
   src: url("./fonts/JetBrainsMonoNerdFontPropo-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Adwaita Sans";
-  src: url("./fonts/AdwaitaSans-Regular.ttf");
 }
 
 .md-grid {

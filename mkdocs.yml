@@ -158,3 +158,4 @@ nav:
   - Blog:
       - blog/openapi-golang.md
       - blog/golang-router.md
+      - blog/opi5-ultra-setup.md

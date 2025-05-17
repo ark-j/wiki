@@ -16,7 +16,7 @@ Kind is a tool for running local Kubernetes clusters using Docker container “n
 - Download the binary, make it executable and move it in `/usr/local/bin`
 - You can also run below commands for quick installation. copy it into your terminal and kind will be installed
 ```sh
-curl -sSL https://raw.githubusercontent.com/ark-j/dotfiles/refs/heads/main/.config/scripts/generic/install_kind.sh | bash
+curl -sSL https://raw.githubusercontent.com/ark-j/dotfiles/refs/heads/main/.config/scripts/generic/kind.sh | bash
 ```
 - Try running `kind version` for checking successful installation
 

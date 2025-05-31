@@ -18,7 +18,7 @@ theme:
 
     # palettle for dark mode
     - scheme: slate
-      primary: deep purple
+      primary: indigo
       toggle:
         icon: material/weather-sunny
         name: switch to light mode
